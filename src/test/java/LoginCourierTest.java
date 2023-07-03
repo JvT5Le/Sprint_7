@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 
-public class LoginCourier {
+public class LoginCourierTest {
     final String courierLogin = "Shin0101";
     final String password = "00aabb00";
     final String firstName = "Yurik";

@@ -13,10 +13,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 
 @RunWith(Parameterized.class)
-public class LoginCourierParams {
+public class LoginCourierParamsTest {
 
     private final Login credentials; // pathToLogin - путь к JSON с учётными данными для логина курьера
-    public LoginCourierParams(Login credentials) {
+    public LoginCourierParamsTest(Login credentials) {
         this.credentials = credentials;
     }
 

@@ -12,9 +12,9 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 
 @RunWith(Parameterized.class)
-public class CreateCourierParams {
+public class CreateCourierParamsTest {
     private final CreateUser credential;
-    public CreateCourierParams(CreateUser credential) {
+    public CreateCourierParamsTest(CreateUser credential) {
         this.credential = credential;
     }
 

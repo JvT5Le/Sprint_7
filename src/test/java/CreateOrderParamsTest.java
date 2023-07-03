@@ -12,10 +12,10 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.apache.http.HttpStatus.SC_CREATED;
 
 @RunWith(Parameterized.class)
-public class CreateOrderParams {
+public class CreateOrderParamsTest {
 
     private final CreateOrder orderRequestBody;
-    public CreateOrderParams(CreateOrder orderRequestBody) {
+    public CreateOrderParamsTest(CreateOrder orderRequestBody) {
         this.orderRequestBody = orderRequestBody;
     }
 

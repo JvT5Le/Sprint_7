@@ -14,7 +14,7 @@ import static org.example.Order.*;
 import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.SC_OK;
 
-public class GetOrderList {
+public class GetOrderListTest {
     Login loginCourier = new Login("Wider","202220");
     CreateOrder createOrder = new CreateOrder("Shikamaru","Nara","Konoha, 123 apt.",
                                             4,"+7-800-355-35-35", 5,

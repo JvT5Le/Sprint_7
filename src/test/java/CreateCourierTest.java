@@ -13,7 +13,7 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_CONFLICT;
 import static org.apache.http.HttpStatus.SC_OK;
 
-public class CreateCourier{
+public class CreateCourierTest {
 
     final String courierLogin = "Shin0101";
     final String password = "00aabb00";
