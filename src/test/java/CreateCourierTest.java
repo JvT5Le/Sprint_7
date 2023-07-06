@@ -12,6 +12,7 @@ import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_CONFLICT;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.example.AppConfig.APP_URL;
 
 public class CreateCourierTest {
 
@@ -21,7 +22,7 @@ public class CreateCourierTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        RestAssured.baseURI = APP_URL;
     }
 
     @Test

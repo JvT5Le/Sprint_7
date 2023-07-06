@@ -10,6 +10,7 @@ import org.junit.runners.Parameterized;
 import static org.example.Order.order;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.example.AppConfig.APP_URL;
 
 @RunWith(Parameterized.class)
 public class CreateOrderParamsTest {
@@ -21,7 +22,7 @@ public class CreateOrderParamsTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        RestAssured.baseURI = APP_URL;
     }
 
     @Parameterized.Parameters

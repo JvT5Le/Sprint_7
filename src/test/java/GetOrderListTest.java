@@ -13,6 +13,7 @@ import static org.example.Courier.*;
 import static org.example.Order.*;
 import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.example.AppConfig.APP_URL;
 
 public class GetOrderListTest {
     Login loginCourier = new Login("Wider","202220");
@@ -25,7 +26,7 @@ public class GetOrderListTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        RestAssured.baseURI = APP_URL;
         create(createCourier);
         order(createOrder);
     };

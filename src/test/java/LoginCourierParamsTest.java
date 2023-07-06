@@ -11,6 +11,7 @@ import org.junit.runners.Parameterized;
 import static org.example.Courier.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
+import static org.example.AppConfig.APP_URL;
 
 @RunWith(Parameterized.class)
 public class LoginCourierParamsTest {
@@ -22,7 +23,7 @@ public class LoginCourierParamsTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        RestAssured.baseURI = APP_URL;
     }
 
     @Parameterized.Parameters

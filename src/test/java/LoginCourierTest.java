@@ -11,6 +11,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
+import static org.example.AppConfig.APP_URL;
 
 public class LoginCourierTest {
     final String courierLogin = "Shin0101";
@@ -19,7 +20,7 @@ public class LoginCourierTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        RestAssured.baseURI = APP_URL;
     }
 
     @Test
