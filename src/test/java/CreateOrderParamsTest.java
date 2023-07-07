@@ -11,13 +11,14 @@ import static org.example.Order.order;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.example.AppConfig.APP_URL;
+import static org.example.AppConfig.CREATE_ORDER;
 
 @RunWith(Parameterized.class)
 public class CreateOrderParamsTest {
 
-    private final CreateOrder orderRequestBody;
-    public CreateOrderParamsTest(CreateOrder orderRequestBody) {
-        this.orderRequestBody = orderRequestBody;
+    private final CreateOrder orderRequestBody = CREATE_ORDER;
+    public CreateOrderParamsTest(String[] orderRequestBody) {
+        this.orderRequestBody.setColor(orderRequestBody);
     }
 
     @Before
@@ -28,10 +29,10 @@ public class CreateOrderParamsTest {
     @Parameterized.Parameters
     public static Object[][] colorData() {
         return new Object[][] {
-                {new CreateOrder("Shikamaru","Nara","Konoha, 123 apt.",4,"+7-800-355-35-35", 5,"2020-06-06","Asuma, come back to Konoha", new String[]{"BLACK"})},
-                {new CreateOrder("Temari","Sobaku no","neKonoha, 13 apt.",3,"+7-800-355-35-35", 3,"2020-06-06","Gaara, come back to noKonoha", new String[]{"GREY"})},
-                {new CreateOrder("Asuma","Sarutobi","Konoha, 73 apt.",2,"+7-800-355-35-35", 4,"2020-06-06","Shikamaru, come back to Konoha", new String[]{"BLACK", "GREY"})},
-                {new CreateOrder("Itachi","Uciha","Konoha, 52 apt.",1,"+7-800-355-35-35", 2,"2020-06-06","Sasuke, come back to Konoha", new String[]{""})}
+                {new String[]{"BLACK"}},
+                {new String[]{"GREY"}},
+                {new String[]{"BLACK", "GREY"}},
+                {new String[]{""}}
         };
     }
 

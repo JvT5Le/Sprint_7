@@ -7,22 +7,21 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import static org.example.AppConfig.faker;
 import static org.example.Courier.*;
 import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_CONFLICT;
-import static org.apache.http.HttpStatus.SC_OK;
-import static org.example.AppConfig.APP_URL;
 
 public class CreateCourierTest {
 
-    final String courierLogin = "Shin0101";
-    final String password = "00aabb00";
-    final String firstName = "Yurik";
+    final String courierLogin = faker.name().username();
+    final String password = faker.internet().password();
+    final String firstName = faker.name().firstName();
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = APP_URL;
+        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
     }
 
     @Test
@@ -30,15 +29,10 @@ public class CreateCourierTest {
     @Description("Status code should be 200 for current courier or 201 for new courier")
     public void createCourierTest() {
         CreateUser createUser = new CreateUser(courierLogin,password,firstName);
-        Login login = new Login(courierLogin,password);
-        if (login(login).getStatusCode() == SC_OK) {
-            delete(login);
-        } else {
             Response response = create(createUser);
             response.then().assertThat().body("ok", equalTo(true))
                     .and()
                     .statusCode(SC_CREATED);
-        }
     }
 
     @Test

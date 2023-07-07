@@ -7,10 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import static org.example.AppConfig.*;
 import static org.example.Courier.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
-import static org.example.AppConfig.APP_URL;
 
 @RunWith(Parameterized.class)
 public class CreateCourierParamsTest {
@@ -27,8 +27,8 @@ public class CreateCourierParamsTest {
     @Parameterized.Parameters
     public static Object[][] credentialsVariable() {
         return new Object[][] {
-                {new CreateUser("","00aabb00","Yurik")},
-                {new CreateUser("Shin0101","","Yurik")}
+                {new CreateUser("",faker.internet().password(),faker.name().firstName())},
+                {new CreateUser(faker.starTrek().character(),"",faker.name().firstName())}
         };
     }
 

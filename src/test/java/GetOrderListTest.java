@@ -9,26 +9,19 @@ import org.example.CreateUser;
 import org.example.CreateOrder;
 import org.example.Login;
 import static io.restassured.RestAssured.given;
+import static org.example.AppConfig.*;
 import static org.example.Courier.*;
 import static org.example.Order.*;
 import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.SC_OK;
-import static org.example.AppConfig.APP_URL;
 
 public class GetOrderListTest {
-    Login loginCourier = new Login("Wider","202220");
-    CreateOrder createOrder = new CreateOrder("Shikamaru","Nara","Konoha, 123 apt.",
-                                            4,"+7-800-355-35-35", 5,
-                                            "2023-06-30","Sasuke, come back to Konoha",
-                                                       new String[]{"BLACK"}
-                                             );
-    CreateUser createCourier = new CreateUser("Wider","202220","Dart");
 
     @Before
     public void setUp() {
         RestAssured.baseURI = APP_URL;
-        create(createCourier);
-        order(createOrder);
+        create(CREATE_COURIER);
+        order(CREATE_ORDER);
     };
 
     @Test
@@ -47,16 +40,17 @@ public class GetOrderListTest {
     @DisplayName("Check status code 200 for Courier login ID")
     @Description("Courier login Orders response status code should be 200 Ok")
     public void getOrdersByCourierLoginIdTest() {
-        int loginId = getCourierIdByLogin(loginCourier);
+        int loginId = getCourierIdByLogin(LOGIN_COURIER);
         Response response = listOrder(loginId);
         response.then()
                 .assertThat()
-                .statusCode(SC_OK);
+                .statusCode(SC_OK)
+                .body("orders", notNullValue());
     }
 
     @After
     public void deleteChanges() {
-        delete(loginCourier);
+        delete(LOGIN_COURIER);
 
     }
 }
